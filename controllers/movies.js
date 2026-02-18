@@ -44,9 +44,9 @@ export const MovieUpdate = async (req, res) => {
       movie.year = req.body.year;
       movie.director = req.body.director;
       movie.actors = req.body.actors;
+      await movie.save();
+      res.json({ msg: "Movie updated successfully" });
     }
-    await movie.save();
-    res.json({ msg: "Movie updated successfully" });
   } catch (error) {
     res.json({ msg: error.message });
   }
