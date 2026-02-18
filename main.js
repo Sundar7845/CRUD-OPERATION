@@ -7,6 +7,10 @@ const PORT = 5000;
 //connect DB
 connectDB();
 
+// Data understanding middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
   res.json({ msg: "Hello CRUD" });
 });
